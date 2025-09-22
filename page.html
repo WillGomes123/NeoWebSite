@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoPower - Energia Inteligente</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Variáveis de Cores e Fontes */
+        :root {
+            --green-neon-bright: #00e4c6;
+            --green-dark-button: #19a547;
+            --gray-dark: #3A3A3A;
+            --white: #FFFFFF;
+            --gray-faded: #c8d2dc;
+            --gray-text: #a2a2a2;
+            --background-gray: #F5F5F5;
+            --green-dark-accent: #118a3a;
+            --green-dark: #03494b;
+            --poppins: 'Poppins', sans-serif;
+            --montserrat: 'Montserrat', sans-serif;
+        }
+
+        /* Estilos Globais */
+        body {
+            margin: 0;
+            font-family: var(--montserrat);
+            color: var(--gray-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Seções */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--poppins);
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background-color: var(--gray-dark);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-section img {
+            max-width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .hero-section h1 {
+            font-family: var(--poppins);
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--white);
+            margin: 0 0 10px;
+        }
+
+        .hero-section p {
+            font-family: var(--montserrat);
+            font-size: 1.1rem;
+            color: var(--gray-faded);
+            margin: 0 auto 30px;
+            max-width: 700px;
+        }
+
+        .cta-button {
+            background-color: var(--green-dark-button);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: var(--poppins);
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--green-dark-accent);
+        }
+        
+        /* Quem Somos Section */
+        .about-section {
+            background-color: var(--white);
+        }
+        
+        .about-section p {
+            font-family: var(--montserrat);
+            font-size: 1rem;
+            color: var(--gray-text);
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.5;
+        }
+
+        .about-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        .about-card {
+            width: 250px;
+            text-align: center;
+        }
+
+        .about-card .icon {
+            font-size: 2rem;
+            color: var(--green-neon-bright);
+            margin-bottom: 10px;
+        }
+
+        .about-card p {
+            font-size: 0.9rem;
+            color: var(--gray-text);
+        }
+        
+        /* Por Que Nos Escolher Section */
+        .why-section {
+            background-color: var(--background-gray);
+        }
+        
+        .why-items {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .why-item {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .why-item h3 {
+            font-family: var(--poppins);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0 0 5px;
+        }
+
+        .why-item p {
+            font-size: 1rem;
+            color: var(--gray-text);
+            margin: 0;
+        }
+        
+        /* Processo Section */
+        .process-section {
+            background-color: var(--white);
+        }
+
+        .process-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            width: 150px;
+            height: 150px;
+            padding: 10px;
+            background-color: var(--background-gray);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .process-step.highlight {
+            background-color: var(--gray-dark);
+        }
+        
+        .process-step.highlight .number,
+        .process-step.highlight .title,
+        .process-step.highlight .icon {
+            color: var(--white);
+        }
+
+        .process-step .number {
+            font-family: var(--poppins);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--gray-text);
+        }
+        
+        .process-step .icon {
+            font-size: 2.5rem;
+            color: #777;
+            margin: 10px 0;
+        }
+
+        .process-step .title {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--gray-dark);
+        }
+        
+        /* Eletromobilidade Section */
+        .eletromob-section {
+            background-color: var(--white);
+        }
+
+        .eletromob-section .content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .eletromob-section .icon {
+            font-size: 3rem;
+            color: var(--green-dark-accent);
+            margin-bottom: 20px;
+        }
+        
+        /* Cases de Sucesso Section */
+        .cases-section {
+            background-color: var(--background-gray);
+        }
+
+        .cases-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .case-card {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: left;
+        }
+
+        .case-card h3 {
+            font-family: var(--poppins);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .case-card p {
+            font-size: 1rem;
+            color: var(--gray-text);
+            margin: 5px 0 0;
+        }
+        
+        /* Garantias Section */
+        .guarantees-section {
+            background-color: var(--green-dark);
+            color: var(--white);
+        }
+        
+        .guarantees-section .section-title {
+            color: var(--white);
+        }
+        
+        .guarantee-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .guarantee-item .icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: var(--green-neon-bright);
+        }
+        
+        .guarantee-item p {
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--green-dark-accent);
+            padding: 80px 20px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .contact-section h2 {
+            font-family: var(--poppins);
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .contact-section p {
+            font-family: var(--montserrat);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--gray-dark);
+            color: var(--gray-text);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .section-title, .contact-section h2 {
+                font-size: 1.5rem;
+            }
+            .cta-button {
+                width: 90%;
+            }
+            .case-card, .data-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="hero-section">
+            <img src="fundo_neo.png" alt="Logo NeoPower">
+            <h1>A Revolução da Energia Elétrica no Amazonas</h1>
+            <p>Soluções de energia limpa, eficientes e inteligentes. NeoPower, a força do amanhã, aqui em Manaus.</p>
+            <a href="#" class="cta-button">Conheça Nossas Soluções</a>
+        </header>
+
+        <main>
+            <section class="section about-section">
+                <h2 class="section-title">QUEM SOMOS</h2>
+                <p>A Solar Neo Energia, fundada em 2013, atua com foco em soluções sustentáveis nos setores de energia solar, engenharia elétrica e mobilidade elétrica. Com sede em Manaus, somos referência em inovação e tecnologia para eletropostos, contribuindo ativamente para o avanço da mobilidade elétrica na região.</p>
+                <p>Somos especializados em projetos sob medida para residências, empresas, indústrias e agronegócios, incluindo soluções de grande escala. Nossa equipe técnica é dedicada a otimizar cada projeto para garantir o melhor desempenho, como demonstrado em grandes obras como os projetos de 10.000kW para os estaleiros ALFA.</p>
+                <div class="about-cards">
+                    <div class="about-card">
+                        <i class="fas fa-project-diagram icon"></i>
+                        <p>+ de 400 projetos realizados</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-map-marker-alt icon"></i>
+                        <p>Atuamos em todo o Amazonas.</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-cogs icon"></i>
+                        <p>Equipe de Engenharia própria</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-headset icon"></i>
+                        <p>Suporte após a implementação</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section process-section">
+                <h2 class="section-title">NOSSO PROCESSO: TURN-KEY 360°</h2>
+                <p>Nosso compromisso é atender as necessidades dos clientes do começo ao fim de cada projeto fotovoltaico. Por isso, seguimos o processo de gerenciamento para facilitar as ações durante a negociação.</p>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <p class="number">01.</p>
+                        <i class="fas fa-pencil-ruler icon"></i>
+                        <p class="title">Consultoria técnica</p>
+                    </div>
+                    <div class="process-step">
+                        <p class="number">02.</p>
+                        <i class="fas fa-calculator icon"></i>
+                        <p class="title">Consultoria financeira</p>
+                    </div>
+                    <div class="process-step">
+                        <p class="number">03.</p>
+                        <i class="fas fa-clipboard-list icon"></i>
+                        <p class="title">Visita técnica</p>
+                    </div>
+                    <div class="process-step">
+                        <p class="number">04.</p>
+                        <i class="fas fa-tachometer-alt icon"></i>
+                        <p class="title">Validação de Perfomance</p>
+                    </div>
+                    <div class="process-step">
+                        <p class="number">05.</p>
+                        <i class="fas fa-file-signature icon"></i>
+                        <p class="title">Contrato Assinado</p>
+                    </div>
+                    <div class="process-step">
+                        <p class="number">06.</p>
+                        <i class="fas fa-certificate icon"></i>
+                        <p class="title">Homologação do Sistema</p>
+                    </div>
+                    <div class="process-step">
+                        <p class="number">07.</p>
+                        <i class="fas fa-box-open icon"></i>
+                        <p class="title">Materiais a comprar</p>
+                    </div>
+                    <div class="process-step">
+                        <p class="number">08.</p>
+                        <i class="fas fa-truck-moving icon"></i>
+                        <p class="title">Logística dos materiais</p>
+                    </div>
+                    <div class="process-step">
+                        <p class="number">09.</p>
+                        <i class="fas fa-tools icon"></i>
+                        <p class="title">Adequação do projeto</p>
+                    </div>
+                    <div class="process-step">
+                        <p class="number">10.</p>
+                        <i class="fas fa-solar-panel icon"></i>
+                        <p class="title">Instalação</p>
+                    </div>
+                    <div class="process-step highlight">
+                        <p class="number">11.</p>
+                        <i class="fas fa-bolt icon"></i>
+                        <p class="title">Entrega finalizado</p>
+                    </div>
+                    <div class="process-step">
+                        <p class="number">12.</p>
+                        <i class="fas fa-headset icon"></i>
+                        <p class="title">Suporte após implementação</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section eletromob-section">
+                <h2 class="section-title">O FUTURO É ELÉTRICO</h2>
+                <div class="content">
+                    <i class="fas fa-bolt icon"></i>
+                    <p>A transição para a eletromobilidade está acelerada e a necessidade de uma infraestrutura de recarga confiável e acessível nunca foi tão urgente. Carros elétricos oferecem benefícios como redução de custos com combustível, manutenção simplificada e, principalmente, a diminuição da poluição nas nossas cidades.</p>
+                    <p>Como especialistas em mobilidade elétrica, a NeoPower está na vanguarda dessa transformação em Manaus, fornecendo e instalando eletropostos de alta potência (40kW, 60kW ou mais) para empresas e condomínios, garantindo que o futuro da eletricidade esteja ao seu alcance.</p>
+                </div>
+            </section>
+
+            <section class="section why-section">
+                <h2 class="section-title">PORQUE NOS ESCOLHER</h2>
+                <div class="why-items">
+                    <div class="why-item">
+                        <h3>SOLUÇÕES ASSERTIVAS</h3>
+                        <p>Analisamos a viabilização de projetos financeiros (project finance) para trazer as melhores condições técnico-comerciais do seu projeto solar.</p>
+                    </div>
+                    <div class="why-item">
+                        <h3>ATENDIMENTO PERSONALIZADO</h3>
+                        <p>Nosso time de consultores é capacitado e orientado a realizar toda consultoria de fatura de energia.</p>
+                    </div>
+                    <div class="why-item">
+                        <h3>ANÁLISE DE EFICIÊNCIA</h3>
+                        <p>Trabalhamos em toda interface de execução de projetos fotovoltaicos, com a premissa de que nossos clientes não precisam se preocupar com nada dentro do processo.</p>
+                    </div>
+                    <div class="why-item">
+                        <h3>RETORNO GARANTIDO EM CONTRATO</h3>
+                        <p>Asseguramos em contrato a geração do sistema fotovoltaico para 100% de segurança e garantia do cliente, que não será surpreendido com uma geração de energia diferente da proposta contratada.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section cases-section">
+                <h2 class="section-title">CASES DE SUCESSO</h2>
+                <div class="cases-grid">
+                    <div class="case-card">
+                        <h3>Cliente: Laiz Brandão</h3>
+                        <p>Geração do Sistema: 1280 kWh/mês</p>
+                    </div>
+                    <div class="case-card">
+                        <h3>Cliente: Oselino</h3>
+                        <p>Geração do Sistema: 1350 kWh/mês</p>
+                    </div>
+                    <div class="case-card">
+                        <h3>Cliente: Joelise Mascarello</h3>
+                        <p>Geração do Sistema: 3000 kWh/mês</p>
+                    </div>
+                    <div class="case-card">
+                        <h3>Cliente: Carvalhos veículos</h3>
+                        <p>Geração do Sistema: 1200 kWh/mês</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section guarantees-section">
+                <h2 class="section-title">GARANTIAS</h2>
+                <div class="guarantee-item">
+                    <i class="fas fa-shield-alt icon"></i>
+                    <p>MÓDULOS: Garantia do fabricante de 25 anos contra queda de eficiência em 20%.</p>
+                </div>
+                <div class="guarantee-item">
+                    <i class="fas fa-shield-alt icon"></i>
+                    <p>INVERSOR(ES): Garantia de 10 anos padrão de acordo com o fabricante.</p>
+                </div>
+                <div class="guarantee-item">
+                    <i class="fas fa-shield-alt icon"></i>
+                    <p>INFRAESTRUTURA E MÃO DE OBRA: Garantia de 1 ano para materiais elétricos e para todos os clientes.</p>
+                </div>
+            </section>
+
+            <section class="contact-section">
+                <h2>Pronto para se Conectar ao Futuro?</h2>
+                <p>Entre em contato e descubra como a NeoPower pode ajudar o seu negócio ou sua casa a ser mais sustentável.</p>
+                <a href="#" class="cta-button">Entre em Contato</a>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 NeoPower. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
